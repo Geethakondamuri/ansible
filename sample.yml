@@ -1,5 +1,5 @@
 - name: Demo for ansible playbook
-  hosts: all
+  hosts: launch-wizard-16
   tasks:
     - name: print Hello
       ansible.builtin.debug:
