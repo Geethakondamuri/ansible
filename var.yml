@@ -34,3 +34,18 @@
         msg: URL == {{URL}}
       vars:
         URL: task2.example.com
+
+#note: Scope of task variable is only to that particular tasks, no other task can't access that
+
+- name: variable for precedence
+  hosts: all
+  vars:
+    URL: pre.example.com
+  vars_files:
+    - sample-var.yml
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+        msg: URL == {{URL}}
+      vars:
+        URL: task.example.com
