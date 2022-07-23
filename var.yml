@@ -56,3 +56,13 @@
     - name: Print URL
       ansible.builtin.debug:
         msg: URL = {{URL}}
+
+- name: pre defined varaible
+  hosts: all
+  tasks:
+    - name: Predifined
+      ansible.builtin.debug:
+        msg: URL = {{ansible_hostname}}
+    - name: Print the processesor
+      ansible.builtin.debug:
+        msg: "{{ansible_processor}}"
