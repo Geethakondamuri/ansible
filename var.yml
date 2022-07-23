@@ -22,15 +22,15 @@
 
 - name: variable on task level
   hosts: all
+  vars:
+    URL: task1.example.com
   tasks:
     - name: Print task1 URL
       ansible.builtin.debug:
         msg: URL == {{URL}}
-    vars:
-      URL: task1.example.com
 
+    vars:
+      URL: task2.example.com
     - name: Print task2 URL
       ansible.builtin.debug:
         msg: URL == {{URL}}
-    vars:
-      URL: task2.example.com
