@@ -72,7 +72,18 @@
   tasks:
     - name: run uptime variable
       ansible.builtin.shell: uptime
-      register: OUTPUT
+      register: OUT
     - name: print out variable
       ansible.builtin.debug:
-        msg: "{{OUTPUT}}"
+        msg: "{{OUT}}"
+
+- name: runtime variable2
+  hosts: all
+  tasks:
+    - name: run uptime std variable
+      ansible.builtin.set_fact:
+        UPTIME_STDOUT: "{{OUT.stdout}}"
+
+    - name: print uptime stdout
+      ansible.builtin.debug:
+        msg: "{{UPTIME_STDOUT}}"
