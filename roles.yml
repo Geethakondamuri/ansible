@@ -1,0 +1,4 @@
+- name: Print roles
+  hosts: all
+  roles:
+    - demo
