@@ -7,6 +7,11 @@
     name: nginx
     state: latest
 
+- name: setup nginx path
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: download
+
 - name: download zip file and extract
   ansible.builtin.unarchive:
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
