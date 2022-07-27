@@ -10,7 +10,7 @@
   roles:
     - mongodb
 
-- name: Setup mongodb component
+- name: Setup catalogue component
   hosts: CATALOGUE
   become: yes
   roles:
