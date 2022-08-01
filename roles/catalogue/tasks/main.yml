@@ -47,5 +47,5 @@
     name: catalogue
     state: restarted
     enabled: yes
-    demon_reload: yes
+    daemon-reload: yes
 
