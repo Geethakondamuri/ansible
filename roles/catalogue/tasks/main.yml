@@ -22,13 +22,13 @@
 
 - name: clean old app code
   ansible.builtin.file:
-    path: /home/roboshop/catalogue
+    path: /home/roboshop/catalogue/catalogue-main
     state: absent
 
 - name: Copy app code
   ansible.builtin.copy:
     src: /tmp/catalogue-main
-    dest: /home/roboshop/catalogue/
+    dest: /home/roboshop/catalogue/catalogue-main
     remote_src: yes
   become_user: roboshop
 
