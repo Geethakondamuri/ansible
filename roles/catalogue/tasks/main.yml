@@ -29,7 +29,7 @@
   ansible.builtin.copy:
     src: /tmp/catalogue-main/
     dest: /home/roboshop/catalogue/
-    remote_src: ye
+    remote_src: yes
   become_user: roboshop
 
 - name: Install catalogue dependencies
