@@ -34,6 +34,6 @@
 
 - name: Install catalogue dependencies
   community.general.npm:
-    path: /home/roboshop/catalogue
+    path: /home/roboshop/catalogue/catalogue-main
   become_user: roboshop
 
