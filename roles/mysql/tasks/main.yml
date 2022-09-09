@@ -5,11 +5,18 @@
 
 - name: Install mysql server
   ansible.builtin.yum:
-    name: mysql-server
+    name:
+      - mysql-community-server
     state: installed
 
-- name: Start the service
+- name: Start the mysql service
   ansible.builtin.systemd:
     name: mysqld
     state: started
     enabled: yes
+
+- name: check if new password is working
+  mysql_info:
+    login_user: root
+    login_password: Roboshop@1
+    filter: version
