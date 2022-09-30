@@ -24,10 +24,19 @@
   ignore_errors: yes
   register: check_pass
 
+- name: print 1
+  debug:
+    msg: "{{check_pass}}"
+
 - name: Find
   ansible.builtin.shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
-  register: mysql_output
+  register: check_pass
 
 - name: print
   debug:
     msg: "{{mysql_output}}"
+
+- name: print
+  debug:
+    msg: "{{mysql_output}}"
+  when: check_pass.failed
