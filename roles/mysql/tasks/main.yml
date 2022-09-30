@@ -36,7 +36,7 @@
         msg: "{{mysql_output}}"
 
     - name: copy password reset SQL
-      ansible.builtin.copy:
+      ansible.builtin.template:
         src: pass-reset.sql
         dest: /tmp/pass.sql
 
