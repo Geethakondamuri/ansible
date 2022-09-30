@@ -34,14 +34,12 @@
     - name: print
     debug:
       msg: "{{mysql_output}}"
-    when: check_pass.failed
 
     - name: copy password reset SQL
     ansible.builtin.copy:
       src: pass-reser.sql
       dest: /tmp/pass.sql
-    when: check_pass.failed
 
     - name: change default password
     ansible.builtin.shell: mysql --connect-expired-password -uroot -p"${{mysql_output.stdout}}" </tmp/pass.sql
-    when: check_pass.failed
+
