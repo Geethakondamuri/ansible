@@ -20,7 +20,7 @@
   mysql_info:
     login_user: root
     login_password: Roboshop@1
-    filter: version
+    filter: databases
   ignore_errors: yes
   register: check_pass
 
@@ -28,13 +28,10 @@
   debug:
     msg: "{{check_pass}}"
 
-- name: Find
+- name: Find the temporary password
   ansible.builtin.shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
-  register: check_pass
-
-- name: print
-  debug:
-    msg: "{{mysql_output}}"
+  register: mysql_output
+  when: check_pass.failed
 
 - name: print
   debug:
